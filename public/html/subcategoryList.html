@@ -1,0 +1,76 @@
+<!-- IMPORT MODULE DETAIL -->
+<!-- 
+
+	Module : 	subcategoryList
+	
+	Links : 	subcategoryEdit
+					/subcategorys/{id}
+.				
+	
+	Nesteds : 	
+				
+-->
+<!-- /IMPORT MODULE DETAIL -->
+<div ng-controller="subcategoryListController">
+	
+	<h1>subcategoryList</h1>
+	
+	<!-- SEARCH FORM -->
+	<div class="well">
+	    <form name="form_search" class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="subcategory">Subcategory</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<input type="text" ng-model="search.subcategory" class="form-control" name="subcategory" id="subcategory" >
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<!-- TABLE -->
+	<table class="table table-condensed table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>_id</th>
+				<th>subcategory</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in list | filter: {  subcategory:search.subcategory,  }">
+				<td ng-bind="item._id" ng-link="/subcategorys/{{item._id}}"></td>
+				<td ng-bind="item.subcategory"></td>
+				<td>
+					<div class="btn btn-xxs" >
+						<i data-toggle="modal" data-target="#removeModal" data-id="{{item._id}}" class="glyphicon glyphicon-trash"></i>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<!-- BUTTON -->
+	<button class="btn btn-primary" ng-link="/subcategorys/new">New</button>
+	
+	<!-- MODAL REMOVE -->
+	<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Delete item</h4>
+				</div>
+				<div class="modal-body">
+					Do you want confirm delete? 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="remove()">YES</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

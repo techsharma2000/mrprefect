@@ -1,0 +1,23 @@
+#errorLogin {
+	display: none;
+}
+
+.loginBox {
+	margin-left: -25%;
+    left: 50%;
+    position: absolute;
+    margin-top: 150px;
+}
+
+*[ng-link]{
+	color: #FF7800;
+	cursor: pointer;
+}
+
+*[ng-link].btn{
+	color: white;
+}
+
+*[ng-link]:hover{
+	text-decoration: underline;
+}

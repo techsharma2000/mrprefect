@@ -1,0 +1,62 @@
+<!-- IMPORT MODULE DETAIL -->
+<!-- 
+
+	Module : 	subcategoryEdit
+	
+	Links : 	
+	
+	Nesteds : 	
+				
+-->
+<!-- /IMPORT MODULE DETAIL -->
+<div ng-controller="subcategoryEditController">
+	
+	<h1 class="col-sm-12 ng-binding">
+		<span>subcategoryEdit</span>
+		{{obj.name}}
+	</h1>
+	
+	
+	
+	<div class="well">
+		<form name="easyForm" class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="subcategory">Subcategory</label>
+				</div>
+				<div class="col-sm-9 form-group" ng-class="{ 'has-error' : easyForm.subcategory.$invalid }">
+					<input type="text" ng-model="obj.subcategory"  class="form-control" name="subcategory" id="subcategory" >
+		 			
+				</div>
+			</div>
+			
+			
+			<h2>Relations</h2>
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="CategoryId">
+						CategoryId
+					</label>
+				</div>
+				<div class="col-sm-9 form-group" ng-class="{ 'has-error' : easyForm.CategoryId.$invalid }">
+					<select ng-model="obj.CategoryId" class="form-control" name="CategoryId" id="CategoryId"  >
+						<option ng-repeat="item in list_Category"  value="{{item._id}}">{{item._id}}</option>
+					</select>
+		 			
+				</div>
+			</div>
+			
+			
+			<h2>External Relations</h2>
+			
+	
+			<div class="row">
+				<button class="btn btn-info pull-right" ng-link="/subcategorys">Back to List</button>
+				<button type="submit" class="btn btn-primary pull-right" ng-disabled="easyForm.$invalid" ng-click="save()">Save</button>
+			</div>
+			<div class="clearfix"></div>
+		</form>
+		
+	</div>
+	
+</div>

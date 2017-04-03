@@ -1,0 +1,61 @@
+<!-- IMPORT MODULE DETAIL -->
+<!-- 
+
+	Module : 	CategoryEdit
+	
+	Links : 	
+	
+	Nesteds : 	
+				
+-->
+<!-- /IMPORT MODULE DETAIL -->
+<div ng-controller="CategoryEditController">
+	
+	<h1 class="col-sm-12 ng-binding">
+		<span>CategoryEdit</span>
+		{{obj.name}}
+	</h1>
+	
+	
+	
+	<div class="well">
+		<form name="easyForm" class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="category">Category</label>
+				</div>
+				<div class="col-sm-9 form-group" ng-class="{ 'has-error' : easyForm.category.$invalid }">
+					<input type="text" ng-model="obj.category"  class="form-control" name="category" id="category" >
+		 			
+				</div>
+			</div>
+			
+			
+			<h2>Relations</h2>
+			
+			
+			<h2>External Relations</h2>
+			
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="_subcategoryCategoryId">
+						_subcategoryCategoryId
+					</label>
+				</div>
+				<div class="col-sm-9 form-group" >
+					<div ng-repeat="item in external._subcategoryCategoryId track by $index">
+						{{item._id}}
+					</div>
+				</div>
+			</div>
+	
+			<div class="row">
+				<button class="btn btn-info pull-right" ng-link="/categorys">Back to List</button>
+				<button type="submit" class="btn btn-primary pull-right" ng-disabled="easyForm.$invalid" ng-click="save()">Save</button>
+			</div>
+			<div class="clearfix"></div>
+		</form>
+		
+	</div>
+	
+</div>
